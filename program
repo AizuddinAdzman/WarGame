@@ -28,35 +28,30 @@ public class GUI extends JFrame{
 		// ***********************************************************************
 		
 		// Create 10x10 board. i indicates rows and j indicates columns
-		for(int i=1; i<rows; i++){	
-			// checking condition to place the bot tank 
-			if(i == 1){
-				JLabel px = new JLabel(TankDown);
-				px.setBackground(Color.GRAY); 
-				px.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-				gridPanel.add(px);
-			}
-			// other normal tiles
-			else{
-				JLabel px = new JLabel();
-				px.setBackground(Color.WHITE); 
-				px.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-				gridPanel.add(px);
-			}
-			
-			for (int j=1; j<columns; j++){
-				if(i == (rows-1) && j == (columns-1)){
-					JLabel py = new JLabel(TankUp);
-					py.setBackground(Color.WHITE);
-					py.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-					gridPanel.add(py);
+		for(int i=0; i<rows; i++){	
+			for(int j=0; j<columns; j++){
+				// checking condition to place the tank
+				if(i == 0 && j == 0){
+					JLabel rc = new JLabel(TankDown);
+					rc.setBackground(Color.WHITE); 
+					rc.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+					gridPanel.add(rc);
+					Grid[i][j] = rc; 
+				}
+				else if(i == 9 && j == 9){
+					JLabel rc = new JLabel(TankUp);
+					rc.setBackground(Color.WHITE); 
+					rc.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+					gridPanel.add(rc);
+					Grid[i][j] = rc;
 				}
 				else{
-					JLabel py = new JLabel();
-					py.setBackground(Color.WHITE);
-					py.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-					gridPanel.add(py);
-				} 
+					JLabel rc = new JLabel();
+					rc.setBackground(Color.WHITE); 
+					rc.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+					gridPanel.add(rc);
+					Grid[i][j] = rc;
+				}
 			}
 		}
 		//-------------------------------------------------------------------------------------
